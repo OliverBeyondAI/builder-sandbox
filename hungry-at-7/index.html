@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Great Hunger Countdown 🍽️</title>
+  <meta name="description" content="A very serious countdown to 7:00 PM Eastern, when Oliver's wife becomes dangerously hungry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍝</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+
+  <main class="card">
+    <div class="emoji-float" aria-hidden="true">🍕</div>
+
+    <p class="eyebrow">⚠️ Official Hunger Advisory</p>
+    <h1 class="title">Oliver's wife gets <span class="accent">VERY</span> hungry at&nbsp;7&nbsp;PM</h1>
+    <p class="subtitle" id="subtitle">Eastern Time. No snacks can stop what is coming.</p>
+
+    <section class="countdown" id="countdown" aria-live="polite" aria-label="Time until 7 PM Eastern">
+      <div class="unit">
+        <div class="digit-wrap"><span class="digit" id="hours">00</span></div>
+        <span class="label">Hours</span>
+      </div>
+      <span class="sep" aria-hidden="true">:</span>
+      <div class="unit">
+        <div class="digit-wrap"><span class="digit" id="minutes">00</span></div>
+        <span class="label">Minutes</span>
+      </div>
+      <span class="sep" aria-hidden="true">:</span>
+      <div class="unit">
+        <div class="digit-wrap"><span class="digit" id="seconds">00</span></div>
+        <span class="label">Seconds</span>
+      </div>
+    </section>
+
+    <p class="status" id="status">until peak hunger</p>
+
+    <div class="hunger-meter" aria-hidden="true">
+      <div class="hunger-meter__track">
+        <div class="hunger-meter__fill" id="hungerFill"></div>
+      </div>
+      <div class="hunger-meter__labels">
+        <span>😌 Fine</span>
+        <span>😐 Peckish</span>
+        <span>🥵 Feral</span>
+      </div>
+    </div>
+
+    <p class="footer-note" id="quip">Loading the hunger…</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
