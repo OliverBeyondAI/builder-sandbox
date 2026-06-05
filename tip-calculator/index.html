@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header class="card__head">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 1v22" />
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+      </div>
+      <div>
+        <h1>Tip Calculator</h1>
+        <p class="subtitle">Split the bill, the easy way.</p>
+      </div>
+    </header>
+
+    <form id="calc" class="form" novalidate>
+      <div class="field">
+        <label for="bill">Bill amount</label>
+        <div class="input-wrap">
+          <span class="prefix">$</span>
+          <input id="bill" type="number" inputmode="decimal" min="0" step="0.01"
+                 placeholder="0.00" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label-row">
+          <label for="tip">Tip</label>
+          <span class="tip-value"><span id="tipLabel">15</span>%</span>
+        </div>
+        <div class="presets" id="presets" role="group" aria-label="Tip presets">
+          <button type="button" class="preset" data-tip="10">10%</button>
+          <button type="button" class="preset is-active" data-tip="15">15%</button>
+          <button type="button" class="preset" data-tip="18">18%</button>
+          <button type="button" class="preset" data-tip="20">20%</button>
+          <button type="button" class="preset" data-tip="25">25%</button>
+        </div>
+        <input id="tip" type="range" min="0" max="50" step="1" value="15"
+               aria-label="Custom tip percent" />
+      </div>
+
+      <div class="field">
+        <label for="people">Number of people</label>
+        <div class="stepper">
+          <button type="button" class="step-btn" id="minus" aria-label="Fewer people">&minus;</button>
+          <input id="people" type="number" inputmode="numeric" min="1" step="1" value="1" />
+          <button type="button" class="step-btn" id="plus" aria-label="More people">+</button>
+        </div>
+      </div>
+    </form>
+
+    <section class="results" aria-live="polite">
+      <div class="result-row">
+        <div class="result-label">
+          <span>Tip total</span>
+          <small>across the table</small>
+        </div>
+        <div class="result-amount" id="tipTotal">$0.00</div>
+      </div>
+      <div class="result-row">
+        <div class="result-label">
+          <span>Total bill</span>
+          <small>bill + tip</small>
+        </div>
+        <div class="result-amount" id="grandTotal">$0.00</div>
+      </div>
+      <div class="result-row result-row--hero">
+        <div class="result-label">
+          <span>Per person</span>
+          <small><span id="peopleLabel">1</span> paying</small>
+        </div>
+        <div class="result-amount" id="perPerson">$0.00</div>
+      </div>
+    </section>
+
+    <button type="button" class="reset" id="reset">Reset</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
