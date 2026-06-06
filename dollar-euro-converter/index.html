@@ -21,12 +21,18 @@
           <p class="brand__sub">USD → EUR converter</p>
         </div>
       </div>
-      <div class="rate-chip" id="rateChip" title="Indicative mid-market rate">
+      <button type="button" class="rate-chip is-loading" id="rateChip" title="Live mid-market rate from Frankfurter.app — click to refresh">
         <span class="rate-chip__dot"></span>
-        <span class="rate-chip__label">Mid-market</span>
+        <span class="rate-chip__label" id="rateLabel">Loading…</span>
         <strong class="rate-chip__val" id="midRate">—</strong>
-      </div>
+      </button>
     </header>
+
+    <!-- Rate source / status -->
+    <p class="source" id="source">
+      <span class="source__text" id="sourceText">Fetching the latest USD → EUR rate…</span>
+      <button type="button" class="source__retry" id="retryBtn" hidden>Retry</button>
+    </p>
 
     <!-- Amount input -->
     <section class="field">
