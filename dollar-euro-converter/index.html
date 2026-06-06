@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USD → EUR Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="aurora"></div>
+
+  <main class="card">
+    <header class="card__head">
+      <div class="brand">
+        <span class="brand__mark">€</span>
+        <div>
+          <h1 class="brand__title">Drift</h1>
+          <p class="brand__sub">USD → EUR converter</p>
+        </div>
+      </div>
+      <div class="rate-chip" id="rateChip" title="Indicative mid-market rate">
+        <span class="rate-chip__dot"></span>
+        <span class="rate-chip__label">Mid-market</span>
+        <strong class="rate-chip__val" id="midRate">—</strong>
+      </div>
+    </header>
+
+    <!-- Amount input -->
+    <section class="field">
+      <label class="field__label" for="usdInput">You send</label>
+      <div class="amount">
+        <span class="amount__cur amount__cur--usd">$</span>
+        <input
+          id="usdInput"
+          class="amount__input"
+          type="text"
+          inputmode="decimal"
+          value="1,000.00"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <span class="amount__code">USD</span>
+      </div>
+      <div class="quick-amounts" id="quickAmounts">
+        <button type="button" data-amt="100">$100</button>
+        <button type="button" data-amt="500">$500</button>
+        <button type="button" data-amt="1000">$1,000</button>
+        <button type="button" data-amt="5000">$5,000</button>
+      </div>
+    </section>
+
+    <!-- Spread slider -->
+    <section class="field">
+      <div class="slider__top">
+        <label class="field__label" for="spread">Exchange spread / cut</label>
+        <span class="slider__value" id="spreadValue">2.5%</span>
+      </div>
+      <input id="spread" class="slider" type="range" min="0" max="8" step="0.1" value="2.5" />
+      <div class="slider__scale">
+        <span>0%</span>
+        <span class="slider__hint">Drag to see what the exchange skims</span>
+        <span>8%</span>
+      </div>
+      <div class="slider__rate">
+        Your effective rate: <strong id="effRate">—</strong>
+        <span class="slider__rate-mid">(mid <span id="effMid">—</span>)</span>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section class="result">
+      <div class="result__main">
+        <span class="result__label">Recipient gets</span>
+        <div class="result__eur">
+          <span class="result__cur">€</span>
+          <span class="result__amount" id="eurOut">—</span>
+          <span class="result__code">EUR</span>
+        </div>
+      </div>
+
+      <!-- Net vs fee bar -->
+      <div class="bar" aria-hidden="true">
+        <div class="bar__net" id="barNet"></div>
+        <div class="bar__fee" id="barFee"></div>
+      </div>
+      <div class="bar__legend">
+        <div class="legend__item">
+          <span class="legend__swatch legend__swatch--net"></span>
+          <div>
+            <span class="legend__name">Net received</span>
+            <strong class="legend__val" id="netVal">€—</strong>
+          </div>
+        </div>
+        <div class="legend__item legend__item--right">
+          <span class="legend__swatch legend__swatch--fee"></span>
+          <div>
+            <span class="legend__name">Exchange takes</span>
+            <strong class="legend__val legend__val--fee" id="feeVal">€—</strong>
+          </div>
+        </div>
+      </div>
+
+      <p class="result__note" id="feeNote">—</p>
+    </section>
+
+    <footer class="card__foot">
+      Indicative rates for illustration only · not financial advice
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
